@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桃花视频-在线影视资源分类与观看指南</title>
+<meta name="description" content="桃花视频提供影视资源分类导航、热门剧集推荐、观看方式说明与常见问题解答，帮助用户快速了解平台内容结构并找到想看的视频。">
+<meta name="keywords" content="桃花视频,在线影视,影视资源,剧集推荐,视频观看指南">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--peach:#e8677a;
+--peach-deep:#c2465a;
+--peach-soft:#fdeef1;
+--ink:#2b2028;
+--ink-soft:#6a5c64;
+--line:#f0dde2;
+--bg:#fffafb;
+--white:#ffffff;
+--radius:14px;
+}
+body{
+font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+background:var(--bg);
+color:var(--ink);
+line-height:1.7;
+-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 顶栏 */
+.topbar{
+background:linear-gradient(100deg,#c2465a,#e8677a 55%,#f1929f);
+color:#fff;
+font-size:13px;
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;flex-wrap:wrap;gap:6px}
+.topbar span{opacity:.92}
+
+/* 页眉 */
+header.site-head{
+background:var(--white);
+border-bottom:1px solid var(--line);
+position:sticky;
+top:0;
+z-index:60;
+box-shadow:0 2px 14px rgba(194,70,90,.06);
+}
+.head-inner{
+display:flex;align-items:center;justify-content:space-between;
+gap:18px;height:70px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{
+width:40px;height:40px;border-radius:12px;
+background:linear-gradient(135deg,#e8677a,#c2465a);
+color:#fff;font-weight:700;font-size:19px;
+display:flex;align-items:center;justify-content:center;
+letter-spacing:-1px;
+}
+.logo-text b{font-size:19px;letter-spacing:.5px;display:block;line-height:1.2}
+.logo-text small{font-size:11px;color:var(--ink-soft);letter-spacing:1.5px}
+nav.main-nav{display:flex;gap:4px;flex-wrap:wrap}
+nav.main-nav a{
+padding:8px 14px;border-radius:999px;
+font-size:14.5px;color:var(--ink-soft);
+transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{
+background:var(--peach-soft);color:var(--peach-deep);font-weight:600;
+}
+.head-cta{
+background:var(--peach);color:#fff;font-size:14px;
+padding:9px 20px;border-radius:999px;font-weight:600;
+white-space:nowrap;transition:.2s;
+}
+.head-cta:hover{background:var(--peach-deep)}
+
+/* 首屏 */
+.hero{
+padding:52px 0 44px;
+background:
+radial-gradient(circle at 88% 12%,rgba(232,103,122,.14),transparent 46%),
+radial-gradient(circle at 6% 90%,rgba(241,146,159,.16),transparent 44%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero-tag{
+display:inline-block;font-size:12.5px;letter-spacing:1px;
+color:var(--peach-deep);background:var(--peach-soft);
+padding:5px 14px;border-radius:999px;margin-bottom:16px;font-weight:600;
+}
+.hero h1{
+font-size:38px;line-height:1.28;letter-spacing:-.5px;margin-bottom:16px;
+}
+.hero h1 em{font-style:normal;color:var(--peach-deep)}
+.hero p.lead{font-size:16px;color:var(--ink-soft);max-width:560px;margin-bottom:24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{
+background:var(--peach);color:#fff;padding:12px 26px;
+border-radius:999px;font-weight:600;font-size:15px;transition:.2s;
+}
+.btn-primary:hover{background:var(--peach-deep);transform:translateY(-1px)}
+.btn-ghost{
+border:1.5px solid var(--peach);color:var(--peach-deep);
+padding:11px 24px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s;
+}
+.btn-ghost:hover{background:var(--peach-soft)}
+
+.hero-panel{
+background:var(--white);border:1px solid var(--line);
+border-radius:20px;padding:24px;
+box-shadow:0 18px 40px rgba(194,70,90,.10);
+}
+.hero-panel h3{font-size:15px;margin-bottom:14px;color:var(--ink)}
+.panel-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.panel-list li{
+display:flex;gap:12px;align-items:flex-start;
+font-size:14px;color:var(--ink-soft);
+padding-bottom:11px;border-bottom:1px dashed var(--line);
+}
+.panel-list li:last-child{border-bottom:0;padding-bottom:0}
+.panel-num{
+flex-shrink:0;width:22px;height:22px;border-radius:7px;
+background:var(--peach-soft);color:var(--peach-deep);
+font-size:12px;font-weight:700;
+display:flex;align-items:center;justify-content:center;
+margin-top:2px;
+}
+
+/* 通用区块 */
+section.block{padding:48px 0}
+.sec-head{margin-bottom:26px}
+.sec-head h2{
+font-size:25px;letter-spacing:-.3px;margin-bottom:8px;
+}
+.sec-head h2::before{
+content:"";display:inline-block;width:6px;height:20px;
+background:var(--peach);border-radius:3px;margin-right:11px;
+vertical-align:-2px;
+}
+.sec-head p{color:var(--ink-soft);font-size:14.5px;max-width:760px}
+
+/* 分类卡 */
+.cat-grid{
+display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.cat-card{
+background:var(--white);border:1px solid var(--line);
+border-radius:var(--radius);padding:20px 18px;
+transition:.22s;
+}
+.cat-card:hover{
+border-color:var(--peach);transform:translateY(-3px);
+box-shadow:0 12px 26px rgba(194,70,90,.10);
+}
+.cat-card .ico{
+width:38px;height:38px;border-radius:11px;
+background:var(--peach-soft);color:var(--peach-deep);
+display:flex;align-items:center;justify-content:center;
+font-size:17px;font-weight:700;margin-bottom:12px;
+}
+.cat-card h3{font-size:16px;margin-bottom:6px}
+.cat-card p{font-size:13.5px;color:var(--ink-soft)}
+
+/* 推荐列表 */
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rec-card{
+background:var(--white);border:1px solid var(--line);
+border-radius:var(--radius);overflow:hidden;transition:.22s;
+}
+.rec-card:hover{border-color:var(--peach);box-shadow:0 12px 26px rgba(194,70,90,.09)}
+.rec-thumb{
+height:118px;
+background:linear-gradient(135deg,#f7c7d0,#e8677a);
+display:flex;align-items:center;justify-content:center;
+color:#fff;font-size:13px;letter-spacing:2px;font-weight:600;
+}
+.rec-card:nth-child(2) .rec-thumb{background:linear-gradient(135deg,#f2b6c1,#c2465a)}
+.rec-card:nth-child(3) .rec-thumb{background:linear-gradient(135deg,#fbd3da,#e8677a)}
+.rec-card:nth-child(4) .rec-thumb{background:linear-gradient(135deg,#eaa0ae,#b83b50)}
+.rec-card:nth-child(5) .rec-thumb{background:linear-gradient(135deg,#f6c9d2,#d9556b)}
+.rec-card:nth-child(6) .rec-thumb{background:linear-gradient(135deg,#efb0bd,#c2465a)}
+.rec-body{padding:16px 18px 18px}
+.rec-body h3{font-size:16px;margin-bottom:6px}
+.rec-body p{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px}
+.rec-meta{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+font-size:12px;padding:3px 10px;border-radius:999px;
+background:var(--peach-soft);color:var(--peach-deep);
+}
+
+/* 指南 + 侧栏 */
+.guide-layout{display:grid;grid-template-columns:1.6fr .9fr;gap:32px;align-items:start}
+.guide-article h3{font-size:18px;margin:24px 0 10px}
+.guide-article h3:first-child{margin-top:0}
+.guide-article p{font-size:15px;color:#4a3d45;margin-bottom:12px}
+.guide-article ul{margin:0 0 14px 20px;font-size:15px;color:#4a3d45}
+.guide-article li{margin-bottom:7px}
+
+.side-box{
+background:var(--white);border:1px solid var(--line);
+border-radius:var(--radius);padding:20px;margin-bottom:18px;
+}
+.side-box h4{font-size:15.5px;margin-bottom:12px;color:var(--peach-deep)}
+.side-box ul{list-style:none;font-size:14px;color:var(--ink-soft)}
+.side-box li{
+padding:8px 0;border-bottom:1px dashed var(--line);
+display:flex;justify-content:space-between;gap:10px;
+}
+.side-box li:last-child{border-bottom:0}
+.side-box li span:last-child{color:var(--peach);font-weight:600;flex-shrink:0}
+
+/* 步骤 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step}
+.step{
+background:var(--white);border:1px solid var(--line);
+border-radius:var(--radius);padding:22px 18px;position:relative;
+}
+.step::before{
+counter-increment:step;content:"0" counter(step);
+position:absolute;top:14px;right:16px;
+font-size:26px;font-weight:800;color:var(--peach-soft);
+letter-spacing:-1px;
+}
+.step h3{font-size:16px;margin-bottom:8px;position:relative}
+.step p{font-size:13.5px;color:var(--ink-soft);position:relative}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:900px}
+.faq-item{
+background:var(--white);border:1px solid var(--line);
+border-radius:var(--radius);padding:18px 22px;
+}
+.faq-item h3{font-size:15.5px;margin-bottom:8px;color:var(--ink)}
+.faq-item h3::before{content:"Q ";color:var(--peach);font-weight:800}
+.faq-item p{font-size:14.5px;color:var(--ink-soft)}
+
+/* 提示条 */
+.notice{
+background:var(--peach-soft);border-left:4px solid var(--peach);
+border-radius:10px;padding:16px 20px;font-size:14px;color:#7a3b47;
+}
+
+/* 页脚 */
+footer.site-foot{
+background:#2b2028;color:#cbb9c0;margin-top:20px;
+padding:44px 0 24px;font-size:14px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.foot-grid h4{color:#fff;font-size:15px;margin-bottom:14px}
+.foot-grid p{font-size:13.5px;color:#a8959e;line-height:1.8}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:9px}
+.foot-grid a{color:#cbb9c0;transition:.2s}
+.foot-grid a:hover{color:var(--peach)}
+.foot-bottom{
+border-top:1px solid #443640;padding-top:18px;
+display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+font-size:13px;color:#8d7a83;
+}
+
+/* 响应式 */
+@media (max-width:980px){
+.hero-grid{grid-template-columns:1fr;gap:30px}
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.rec-grid{grid-template-columns:repeat(2,1fr)}
+.guide-layout{grid-template-columns:1fr}
+.steps{grid-template-columns:repeat(2,1fr)}
+.foot-grid{grid-template-columns:1fr 1fr}
+.head-inner{height:auto;padding:12px 0;flex-wrap:wrap}
+nav.main-nav{order:3;width:100%;justify-content:flex-start}
+}
+@media (max-width:600px){
+.hero{padding:34px 0 30px}
+.hero h1{font-size:27px}
+.sec-head h2{font-size:21px}
+.cat-grid{grid-template-columns:1fr}
+.rec-grid{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr}
+section.block{padding:34px 0}
+.topbar .wrap{height:auto;padding:7px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>桃花视频 · 影视资源分类导航与观看参考</span>
+    <span>请通过正规渠道观看，尊重版权</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark">桃</span>
+      <span class="logo-text">
+        <b>桃花视频</b>
+        <small>VIDEO GUIDE</small>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="#categories" class="active">内容分类</a>
+      <a href="#recommend">热门推荐</a>
+      <a href="#guide">观看指南</a>
+      <a href="#steps">使用步骤</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="head-cta" href="#guide">查看指南</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">影视内容 · 分类导航</span>
+        <h1>桃花视频：<em>把想看的影视内容</em>更快找出来</h1>
+        <p class="lead">
+          很多人打开视频平台后的第一个困扰，不是没有内容，而是不知道该从哪里找。
+          桃花视频类平台通常以剧集、电影、综艺、动漫等分类为核心，本页整理内容分类逻辑、
+          选片思路、观看注意事项与常见疑问，帮助你建立一套清晰的找片方法。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#categories">浏览内容分类</a>
+          <a class="btn-ghost" href="#guide">阅读观看指南</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h3>找片前的四个判断</h3>
+        <ul class="panel-list">
+          <li><span class="panel-num">1</span><span>先确定类型：剧集、电影、综艺、动漫还是纪录片，类型决定筛选入口。</span></li>
+          <li><span class="panel-num">2</span><span>再看时长与集数，碎片时间适合单集短片，整块时间适合长剧或电影。</span></li>
+          <li><span class="panel-num">3</span><span>留意更新节奏，连载内容的追更体验与完结作品差别较大。</span></li>
+          <li><span class="panel-num">4</span><span>最后确认观看渠道是否正规，避免来源不明的页面与下载链接。</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 内容分类 -->
+  <section class="block" id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>内容分类</h2>
+        <p>影视平台的内容通常按照题材与形式划分为若干大类。理解分类结构，比逐个翻页查找效率更高。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico">剧</div>
+          <h3>电视剧集</h3>
+          <p>按都市、古装、悬疑、家庭等题材细分，连载更新与完结作品各有适合的观看节奏。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">影</div>
+          <h3>电影长片</h3>
+          <p>时长集中、单次看完，适合周末或整块空闲时间，题材跨度通常比剧集更大。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">综</div>
+          <h3>综艺节目</h3>
+          <p>以季播或周播为主，单集独立性强，适合放松观看，也便于随时暂停。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">漫</div>
+          <h3>动漫番剧</h3>
+          <p>包含国漫与日番等方向，更新周期固定，追更与补番是两种不同的观看方式。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">纪</div>
+          <h3>纪录片</h3>
+          <p>偏知识与观察视角，单集主题明确，适合按兴趣挑选而非按热度排序。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">短</div>
+          <h3>短剧短片</h3>
+          <p>单集时长短、节奏快，适合通勤与碎片时间，注意甄别内容质量差异。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">榜</div>
+          <h3>热度榜单</h3>
+          <p>以播放量或讨论度排序，可作为快速了解近期关注方向的参考入口。</p>
+        </article>
+        <article class="cat-card">
+          <div class="ico">藏</div>
+          <h3>个人收藏</h3>
+          <p>把待看内容集中管理，避免反复搜索，是提升找片效率的实用习惯。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section class="block" id="recommend" style="background:linear-gradient(180deg,#fffafb,#fdeef1 60%,#fffafb)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>热门推荐方向</h2>
+        <p>以下为常见的选片方向参考，用于说明不同需求下可以如何选择内容类型，不构成对具体作品的评价。</p>
+      </div>
+      <div class="rec-grid">
+        <article class="rec-card">
+          <div class="rec-thumb">悬疑推理</div>
+          <div class="rec-body">
+            <h3>强情节剧集</h3>
+            <p>以线索推进为主线，适合连续观看，建议一次不超过两集以免信息过载。</p>
+            <div class="rec-meta"><span class="chip">剧集</span><span class="chip">连载</span></div>
+          </div>
+        </article>
+        <article class="rec-card">
+          <div class="rec-thumb">轻松日常</div>
+          <div class="rec-body">
+            <h3>轻喜剧与生活流</h3>
+            <p>节奏舒缓、单集独立，适合下班后放松，中断观看的影响较小。</p>
+            <div class="rec-meta"><span class="chip">剧集</span><span class="chip">轻松</span></div>
+          </div>
+        </article>
+        <article class="rec-card">
+          <div class="rec-thumb">周末影院</div>
+          <div class="rec-body">
+            <h3>单次看完的电影</h3>
+            <p>时长集中、结构完整，适合安排固定时段观看，观影体验更连贯。</p>
+            <div class="rec-meta"><span class="chip">电影</span><span class="chip">单片</span></div>
+          </div>
+        </article>
+        <article class="rec-card">
+          <div class="rec-thumb">陪伴型内容</div>
+          <div class="rec-body">
+            <h3>综艺与访谈</h3>
+            <p>信息密度低、氛围轻松，适合边做事边看，对注意力要求不高。</p>
+            <div class="rec-meta"><span class="chip">综艺</span><span class="chip">周播</span></div>
+          </div>
+        </article>
+        <article class="rec-card">
+          <div class="rec-thumb">追更节奏</div>
+          <div class="rec-body">
+            <h3>当季番剧</h3>
+            <p>更新周期固定，适合建立固定观看习惯；补番则更适合一次性连续观看。</p>
+            <div class="rec-meta"><span class="chip">动漫</span><span class="chip">季度</span></div>
+          </div>
+        </article>
+        <article class="rec-card">
+          <div class="rec-thumb">知识向</div>
+          <div class="rec-body">
+            <h3>纪录片与专题</h3>
+            <p>按主题挑选比按热度挑选更有效，建议先看简介确认内容方向是否符合兴趣。</p>
+            <div class="rec-meta"><span class="chip">纪录片</span><span class="chip">专题</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观看指南 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>观看指南</h2>
+        <p>从找片到看完，一套可复用的流程能明显减少无效翻找的时间。</p>
+      </div>
+      <div class="guide-layout">
+        <article class="guide-article">
+          <h3>一、明确观看场景，再决定内容类型</h3>
+          <p>
+            找片效率低，往往不是资源不够，而是没有先确定场景。通勤、午休这类碎片时间，
+            更适合单集短、独立性强的综艺或短剧；周末整块时间，则更适合电影或需要连续观看的剧集。
+            先确定场景，再进入对应分类，可以省掉大量来回切换的步骤。
+          </p>
+
+          <h3>二、用分类加筛选代替盲目翻页</h3>
+          <p>
+            大多数影视平台的分类入口都支持题材、年份、地区等维度的组合筛选。
+            与其在首页不断下拉，不如进入分类页后叠加两到三个条件，
+            把候选范围压缩到一屏之内，再做选择。
+          </p>
+          <ul>
+            <li>题材决定内容方向，是筛选的第一层条件。</li>
+            <li>年份帮助区分新作与经典，避免选到已经看过或过时的内容。</li>
+            <li>地区影响叙事风格与节奏偏好，可按个人习惯保留或排除。</li>
+          </ul>
+
+          <h3>三、看简介与标签，而不是只看标题</h3>
+          <p>
+            标题往往承担吸引点击的作用，信息量有限。简介中的故事背景、主要人物关系，
+            以及平台给出的题材标签，才更能反映内容是否合口味。
+            花三十秒读简介，通常比看十分钟后弃剧更省时间。
+          </p>
+
+          <h3>四、注意观看渠道的规范性</h3>
+          <p>
+            影视内容的版权归属明确，建议通过正规、有资质的平台观看。
+            对于来源不明的页面、要求额外安装未知程序的提示，以及诱导性的下载链接，
+            应保持谨慎，避免设备安全与个人信息受到影响。
+          </p>
+
+          <h3>五、建立自己的待看清单</h3>
+          <p>
+            把感兴趣但暂时没时间看的内容加入收藏或清单，是提升长期观看体验的有效做法。
+            清单建议按类型分组，并定期清理已经不再感兴趣的内容，
+            避免清单本身变成新的负担。
+          </p>
+
+          <div class="notice">
+            提示：本页为影视内容分类与观看方法的说明页面，不提供具体影视资源的播放与下载服务。
+            观看请选择正规渠道，并遵守相关版权规定。
+          </div>
+        </article>
+
+        <aside>
+          <div class="side-box">
+            <h4>不同场景的选片建议</h4>
+            <ul>
+              <li><span>通勤途中</span><span>短剧 / 综艺</span></li>
+              <li><span>午休时间</span><span>单集剧集</span></li>
+              <li><span>周末整块</span><span>电影 / 长剧</span></li>
+              <li><span>睡前放松</span><span>生活流 / 轻喜剧</span></li>
+              <li><span>专注学习</span><span>纪录片 / 专题</span></li>
+            </ul>
+          </div>
+          <div class="side-box">
+            <h4>筛选条件的使用顺序</h4>
+            <ul>
+              <li><span>第一步</span><span>确定类型</span></li>
+              <li><span>第二步</span><span>叠加题材</span></li>
+              <li><span>第三步</span><span>限定年份</span></li>
+              <li><span>第四步</span><span>查看简介</span></li>
+            </ul>
+          </div>
+          <div class="side-box">
+            <h4>常见误区</h4>
+            <ul>
+              <li><span>只看标题</span><span>容易误判</span></li>
+              <li><span>只追热度</span><span>未必合口味</span></li>
+              <li><span>来源不明</span><span>存在风险</span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用步骤 -->
+  <section class="block" id="steps" style="background:linear-gradient(180deg,#fffafb,#fdeef1 70%,#fffafb)">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>使用步骤</h2>
+        <p>把找片拆成四个动作，形成固定习惯后，选片会明显更快。</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>确定场景</h3>
+          <p>先看自己有多少可支配时间，再决定是看单集还是连续观看。</p>
+        </article>
+        <article class="step">
+          <h3>进入分类</h3>
+          <p>按类型进入对应栏目，用题材、年份、地区等条件缩小范围。</p>
+        </article>
+        <article class="step">
+          <h3>阅读简介</h3>
+          <p>确认故事方向与风格是否符合预期，避免看几分钟后放弃。</p>
+        </article>
+        <article class="step">
+          <h3>加入清单</h3>
+          <p>把候选内容集中收藏，按优先级安排后续观看顺序。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>关于影视内容分类与观看方式，以下问题被提及的频率较高。</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>桃花视频这类平台主要提供什么内容？</h3>
+          <p>
+            通常以影视内容为主，涵盖剧集、电影、综艺、动漫、纪录片等常见分类，
+            并提供分类浏览、筛选和榜单等入口，方便用户按类型查找内容。
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>怎样更快找到符合自己口味的内容？</h3>
+          <p>
+            建议先确定观看场景与可用时间，再进入对应分类叠加筛选条件，
+            最后通过简介与标签确认内容方向。相比在首页反复下拉，这种方式更高效。
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>连载中的内容和完结内容该怎么选？</h3>
+          <p>
+            连载内容适合建立固定观看节奏，但需要等待更新；完结内容可以自由安排进度，
+            更适合希望一次性看完的用户。两者并无优劣，取决于你的时间安排。
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>观看影视内容需要注意什么？</h3>
+          <p>
+            建议通过正规、有资质的平台观看，遵守相关版权规定。
+            对来源不明的页面、要求安装未知程序的提示应保持谨慎，
+            避免设备安全和个人信息受到影响。
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>热度榜单值得参考吗？</h3>
+          <p>
+            榜单可以反映近期的关注方向，适合作为了解趋势的起点，
+            但热度并不等于适合自己。建议把榜单当作候选池，再用简介做二次筛选。
+          </p>
+        </article>
+        <article class="faq-item">
+          <h3>本页面是否提供视频播放？</h3>
+          <p>
+            不提供。本页是围绕该关键词整理的影视内容分类与观看方法说明页面，
+            用于帮助用户建立找片思路，不包含任何影视资源的播放或下载功能。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>桃花视频 · 内容导航</h4>
+        <p>
+          围绕影视内容分类、选片方法与观看注意事项整理的说明页面，
+          帮助用户用更短的时间找到想看的内容类型。
+        </p>
+      </div>
+      <div>
+        <h4>内容分类</h4>
+        <ul>
+          <li><a href="#categories">电视剧集</a></li>
+          <li><a href="#categories">电影长片</a></li>
+          <li><a href="#categories">综艺节目</a></li>
+          <li><a href="#categories">动漫番剧</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用帮助</h4>
+        <ul>
+          <li><a href="#guide">观看指南</a></li>
+          <li><a href="#steps">使用步骤</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#recommend">推荐方向</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关说明</h4>
+        <ul>
+          <li><a href="#guide">版权与渠道提示</a></li>
+          <li><a href="#guide">筛选条件说明</a></li>
+          <li><a href="#faq">内容范围说明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>本页为影视内容分类与观看方法说明页面，不提供影视资源播放与下载。</span>
+      <span>请通过正规渠道观看，尊重版权。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('nav.main-nav a');
+  links.forEach(function(link){
+    link.addEventListener('click', function(){
+      links.forEach(function(l){ l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+            </html>
