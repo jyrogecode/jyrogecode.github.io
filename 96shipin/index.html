@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>96视频在线观看-影视资源分类浏览与观看指南</title>
+<meta name="description" content="96视频在线观看指南，整理影视分类、剧集更新、热门榜单与在线观看常见问题，帮助用户快速了解96视频的浏览方式与内容结构。">
+<meta name="keywords" content="96视频在线观看,96视频,在线观看,影视分类,剧集更新,热门榜单">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --ink: #1a1d24;
+  --ink-soft: #4a5160;
+  --line: #e3e7ef;
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --accent: #e8402a;
+  --accent-soft: #fff1ee;
+  --accent-deep: #b92c1a;
+  --blue: #2f5bff;
+  --radius: 14px;
+}
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img { max-width: 100%; display: block; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #14161c;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #23262f;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+.logo-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #ff5c3d, #e8402a);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+.logo span.accent { color: #ff6b4f; }
+.main-nav {
+  display: flex;
+  gap: 22px;
+  font-size: 14.5px;
+  color: #c8cdd8;
+  flex: 1;
+  overflow-x: auto;
+}
+.main-nav a {
+  white-space: nowrap;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btn-search {
+  background: #23262f;
+  color: #aeb5c2;
+  border: 1px solid #2f333e;
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-search:hover { background: #2c303b; color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: radial-gradient(1200px 400px at 15% -10%, #3a2a52 0%, transparent 60%),
+              radial-gradient(900px 380px at 95% 0%, #4a1f1a 0%, transparent 55%),
+              #14161c;
+  color: #fff;
+  padding: 54px 20px 60px;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  color: #ffb3a3;
+  background: rgba(232,64,42,.16);
+  border: 1px solid rgba(232,64,42,.4);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: 36px;
+  line-height: 1.32;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #ff6b4f;
+}
+.hero p.lead {
+  color: #b9c0cd;
+  font-size: 15.5px;
+  max-width: 560px;
+  margin-bottom: 26px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  padding: 11px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .15s, background .2s, border-color .2s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-deep); }
+.btn-ghost {
+  background: rgba(255,255,255,.06);
+  color: #e6e9ef;
+  border-color: rgba(255,255,255,.18);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.12); }
+.hero-stats {
+  display: flex;
+  gap: 34px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.hero-stats div strong {
+  display: block;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 800;
+}
+.hero-stats div span {
+  font-size: 12.5px;
+  color: #8f97a6;
+}
+.hero-panel {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 22px;
+  backdrop-filter: blur(6px);
+}
+.hero-panel h3 {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-panel h3::before {
+  content: "";
+  width: 4px;
+  height: 15px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.hero-list { list-style: none; }
+.hero-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.1);
+  font-size: 14px;
+  color: #cfd5df;
+}
+.hero-list li:last-child { border-bottom: none; }
+.hero-list li span:last-child {
+  color: #8f97a6;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+/* ---------- Layout ---------- */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section {
+  padding: 52px 0 10px;
+}
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-head h2::before {
+  content: "";
+  width: 5px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+.section-head p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.link-more {
+  font-size: 13.5px;
+  color: var(--blue);
+  white-space: nowrap;
+}
+.link-more:hover { text-decoration: underline; }
+
+/* ---------- Category grid ---------- */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.cat-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.cat-card:hover {
+  box-shadow: 0 10px 26px rgba(24,32,60,.08);
+  transform: translateY(-3px);
+  border-color: #d3dae8;
+}
+.cat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  margin-bottom: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.cat-card h3 {
+  font-size: 16px;
+  margin-bottom: 7px;
+  font-weight: 700;
+}
+.cat-card p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.cat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cat-tags span {
+  font-size: 12px;
+  color: #5a6273;
+  background: #f1f4f9;
+  border-radius: 6px;
+  padding: 3px 9px;
+}
+
+/* ---------- Hot list ---------- */
+.hot-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 22px;
+}
+.hot-main {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 22px 16px;
+}
+.hot-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eef1f7;
+  align-items: flex-start;
+}
+.hot-row:last-child { border-bottom: none; }
+.hot-rank {
+  font-size: 17px;
+  font-weight: 800;
+  color: #c3cad8;
+  width: 28px;
+  flex-shrink: 0;
+  text-align: center;
+  padding-top: 2px;
+}
+.hot-row:nth-child(1) .hot-rank { color: #e8402a; }
+.hot-row:nth-child(2) .hot-rank { color: #f08a2a; }
+.hot-row:nth-child(3) .hot-rank { color: #d8a520; }
+.hot-body h3 {
+  font-size: 15.5px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.hot-body p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.hot-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: #8a93a4;
+}
+.hot-meta b { color: var(--accent); font-weight: 600; }
+
+.side-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+.side-card h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.side-card h3::before {
+  content: "";
+  width: 4px;
+  height: 14px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+.side-list { list-style: none; }
+.side-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eef1f7;
+  color: #3d4453;
+}
+.side-list li:last-child { border-bottom: none; }
+.side-list li span:last-child {
+  color: #98a1b1;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+/* ---------- Guide ---------- */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.guide-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+}
+.guide-card .num {
+  font-size: 40px;
+  font-weight: 800;
+  color: #f0f3f9;
+  line-height: 1;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+}
+.guide-card h3 {
+  font-size: 16.5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.guide-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  position: relative;
+}
+
+/* ---------- Notice ---------- */
+.notice {
+  background: #fffaf0;
+  border: 1px solid #f4e3bd;
+  border-left: 4px solid #e8a020;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-top: 34px;
+  font-size: 14px;
+  color: #7a5a12;
+}
+.notice strong { color: #5e4409; }
+
+/* ---------- FAQ ---------- */
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+.faq-item h3 {
+  font-size: 15.5px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.faq-item h3::before {
+  content: "Q";
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+}
+.faq-item p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  padding-left: 32px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #14161c;
+  color: #8f97a6;
+  margin-top: 60px;
+  padding: 44px 20px 26px;
+  font-size: 13.5px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { line-height: 1.8; max-width: 320px; }
+.footer-col h4 {
+  color: #e6e9ef;
+  font-size: 14px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #23262f;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: #6b7383;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .hot-layout { grid-template-columns: 1fr; }
+  .guide-grid { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .header-inner { height: auto; padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+  .main-nav { order: 3; width: 100%; gap: 16px; font-size: 14px; }
+  .hero { padding: 36px 16px 44px; }
+  .hero h1 { font-size: 26px; }
+  .hero-stats { gap: 22px; }
+  .wrap { padding: 0 16px; }
+  .section { padding: 38px 0 6px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .guide-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 22px; }
+  .hot-main { padding: 6px 16px 12px; }
+  .faq-item p { padding-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">96</span>
+      96<span class="accent">视频</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#categories" class="active">影视分类</a>
+      <a href="#hot">热门榜单</a>
+      <a href="#updates">剧集更新</a>
+      <a href="#guide">观看指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-search" type="button">搜索片名 / 类型</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag">影视资源 · 分类浏览 · 观看指引</span>
+        <h1>96视频在线观看：<em>分类找片</em>与观看方式全解析</h1>
+        <p class="lead">
+          想通过 96视频在线观看影视内容，通常最先遇到的不是“能不能看”，而是“从哪里找、按什么分类找、更新在哪里看”。
+          本页围绕 96视频 的内容结构，整理影视分类、剧集更新、热门榜单与常见观看问题，帮助你更快定位想看的内容。
+        </p>
+        <div class="hero-actions">
+          <a href="#categories" class="btn btn-primary">浏览影视分类</a>
+          <a href="#guide" class="btn btn-ghost">查看观看指南</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>电影</strong><span>剧情 / 动作 / 科幻</span></div>
+          <div><strong>剧集</strong><span>国产 / 美剧 / 日韩</span></div>
+          <div><strong>综艺动漫</strong><span>持续更新内容</span></div>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h3>近期关注方向</h3>
+        <ul class="hero-list">
+          <li><span>高分剧情片单</span><span>口碑向</span></li>
+          <li><span>连载剧集更新</span><span>追更向</span></li>
+          <li><span>经典老片回顾</span><span>怀旧向</span></li>
+          <li><span>动漫新番合集</span><span>二次元</span></li>
+          <li><span>综艺轻松下饭</span><span>休闲向</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section class="section wrap" id="categories">
+    <div class="section-head">
+      <div>
+        <h2>影视分类导航</h2>
+        <p>按内容形态与题材划分，先确定大类，再缩小到具体题材，是找片效率最高的方式。</p>
+      </div>
+      <a href="#hot" class="link-more">查看热门榜单 →</a>
+    </div>
+    <div class="cat-grid">
+      <article class="cat-card">
+        <div class="cat-icon">🎬</div>
+        <h3>电影</h3>
+        <p>时长完整、故事独立，适合一次性看完。可按剧情、动作、悬疑、科幻等题材筛选。</p>
+        <div class="cat-tags"><span>剧情</span><span>动作</span><span>悬疑</span><span>科幻</span></div>
+      </article>
+      <article class="cat-card">
+        <div class="cat-icon">📺</div>
+        <h3>电视剧集</h3>
+        <p>以连续剧集为主，需要按更新节奏追看。适合关注国产剧、美剧、日韩剧的用户。</p>
+        <div class="cat-tags"><span>国产剧</span><span>美剧</span><span>日韩剧</span><span>短剧</span></div>
+      </article>
+      <article class="cat-card">
+        <div class="cat-icon">🎞️</div>
+        <h3>动漫番剧</h3>
+        <p>包含国漫、日番与剧场版动画，更新周期相对固定，适合按季度或连载进度查看。</p>
+        <div class="cat-tags"><span>国漫</span><span>日番</span><span>剧场版</span><span>热血</span></div>
+      </article>
+      <article class="cat-card">
+        <div class="cat-icon">🎤</div>
+        <h3>综艺纪实</h3>
+        <p>节奏轻松、单集独立性强，适合碎片时间观看，也包含纪录片与访谈类内容。</p>
+        <div class="cat-tags"><span>真人秀</span><span>脱口秀</span><span>纪录片</span><span>访谈</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 热门 + 侧栏 -->
+  <section class="section wrap" id="hot">
+    <div class="section-head">
+      <div>
+        <h2>热门关注榜单</h2>
+        <p>榜单反映的是近期被较多用户浏览与讨论的方向，可作为选片参考，但不代表唯一标准。</p>
+      </div>
+      <a href="#updates" class="link-more">查看更新节奏 →</a>
+    </div>
+    <div class="hot-layout">
+      <div class="hot-main">
+        <div class="hot-row">
+          <div class="hot-rank">01</div>
+          <div class="hot-body">
+            <h3>高口碑剧情长片</h3>
+            <p>以完整叙事和人物刻画见长，适合希望一次看完一个完整故事的用户，通常讨论度集中在剧情走向与结局解读。</p>
+            <div class="hot-meta"><span>类型：<b>剧情 / 文艺</b></span><span>观看建议：安静环境</span></div>
+          </div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-rank">02</div>
+          <div class="hot-body">
+            <h3>连载中的热门剧集</h3>
+            <p>更新频率相对固定，适合追更。建议先确认更新周期，再决定是否开启追剧，避免因等待影响观看节奏。</p>
+            <div class="hot-meta"><span>类型：<b>剧集 / 连载</b></span><span>观看建议：按更新追</span></div>
+          </div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-rank">03</div>
+          <div class="hot-body">
+            <h3>轻松向综艺与纪实</h3>
+            <p>单集独立、门槛低，适合吃饭或休息时观看。此类内容通常不要求连续观看，随时进入都能跟上。</p>
+            <div class="hot-meta"><span>类型：<b>综艺 / 纪实</b></span><span>观看建议：碎片时间</span></div>
+          </div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-rank">04</div>
+          <div class="hot-body">
+            <h3>经典影片回顾</h3>
+            <p>上映时间较早但仍有稳定观看需求的作品，适合按导演、演员或题材做主题式集中观看。</p>
+            <div class="hot-meta"><span>类型：<b>经典 / 回顾</b></span><span>观看建议：主题连看</span></div>
+          </div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-rank">05</div>
+          <div class="hot-body">
+            <h3>动漫新番与剧场版</h3>
+            <p>更新周期与季度绑定较强，剧场版则多为独立故事。建议先看简介判断是否需要补前作。</p>
+            <div class="hot-meta"><span>类型：<b>动漫 / 番剧</b></span><span>观看建议：注意顺序</span></div>
+        </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="side-card" id="updates">
+          <h3>更新节奏参考</h3>
+          <ul class="side-list">
+            <li><span>剧集类内容</span><span>按周更新居多</span></li>
+            <li><span>动漫番剧</span><span>与季度同步</span></li>
+            <li><span>综艺节目</span><span>固定档期</span></li>
+            <li><span>电影长片</span><span>多为一次性上线</span></li>
+            <li><span>纪录片</span><span>不定期更新</span></li>
+          </ul>
+        </div>
+        <div class="side-card">
+          <h3>选片小提示</h3>
+          <ul class="side-list">
+            <li><span>先看简介再决定</span><span>降低踩雷</span></li>
+            <li><span>留意时长</span><span>安排时间</span></li>
+            <li><span>确认是否连载</span><span>避免断档</span></li>
+            <li><span>参考类型标签</span><span>快速筛选</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 观看指南 -->
+  <section class="section wrap" id="guide">
+    <div class="section-head">
+      <div>
+        <h2>在线观看方式与准备</h2>
+        <p>在线观看体验受网络环境、设备性能和浏览器设置影响，提前做好这几步通常能减少卡顿与加载问题。</p>
+      </div>
+    </div>
+    <div class="guide-grid">
+      <article class="guide-card">
+        <span class="num">01</span>
+        <h3>确认网络环境</h3>
+        <p>在线播放对网络稳定性要求高于峰值速度。若出现缓冲频繁，可优先检查 Wi-Fi 信号强度，或切换到更稳定的网络再尝试。</p>
+      </article>
+      <article class="guide-card">
+        <span class="num">02</span>
+        <h3>选择合适的清晰度</h3>
+        <p>清晰度越高对带宽要求越大。移动网络下建议先从中等清晰度开始，确认流畅后再手动调高，避免反复加载。</p>
+      </article>
+      <article class="guide-card">
+        <span class="num">03</span>
+        <h3>使用现代浏览器</h3>
+        <p>较新版本的浏览器对视频解码支持更好。若页面无法正常播放，可尝试更新浏览器或更换内核不同的浏览器访问。</p>
+      </article>
+      <article class="guide-card">
+        <span class="num">04</span>
+        <h3>检查音量与静音</h3>
+        <p>部分浏览器会默认静音自动播放。若画面正常但无声音，先检查标签页静音状态与系统音量设置。</p>
+      </article>
+      <article class="guide-card">
+        <span class="num">05</span>
+        <h3>合理安排观看时长</h3>
+        <p>连续剧集容易一口气看很久。建议按单集时长拆分观看计划，尤其注意夜间用眼与休息。</p>
+      </article>
+      <article class="guide-card">
+        <span class="num">06</span>
+        <h3>注意内容来源合规</h3>
+        <p>观看影视内容时，应选择正规、合规的渠道。对来源不明的页面保持谨慎，避免点击可疑下载或授权请求。</p>
+      </article>
+    </div>
+
+    <div class="notice">
+      <strong>温馨提示：</strong>本页面为影视内容浏览与观看方式的信息整理页，用于说明分类结构、更新节奏与常见问题，不提供任何影视文件的上传、存储或下载服务。请通过合法合规渠道观看影视作品，尊重版权。
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section wrap" id="faq">
+    <div class="section-head">
+      <div>
+        <h2>常见问题</h2>
+        <p>围绕 96视频在线观看 这一需求，整理用户最常提出的几个问题。</p>
+      </div>
+    </div>
+    <div class="faq-list">
+      <article class="faq-item">
+        <h3>96视频在线观看需要注册账号吗？</h3>
+        <p>是否需要账号取决于具体平台规则，不同站点差异较大。一般来说，浏览分类和查看简介通常不需要登录，涉及收藏、记录等个性化功能时可能要求注册。建议以实际页面提示为准。</p>
+      </article>
+      <article class="faq-item">
+        <h3>为什么有的内容显示更新中，却迟迟没有新集？</h3>
+        <p>剧集与动漫的更新节奏通常由制作方和播出安排决定，平台只做同步展示。遇到停更、延期属于常见情况，可以关注官方公告或分类页的更新标识，不建议轻信非官方来源的“提前看”说法。</p>
+      </article>
+      <article class="faq-item">
+        <h3>在线观看总是卡顿怎么办？</h3>
+        <p>可以按顺序排查：先确认网络是否稳定，再降低播放清晰度，然后尝试刷新页面或更换浏览器。如果同一网络下其他视频服务正常，则更可能是当前页面加载问题，可稍后再试。</p>
+      </article>
+      <article class="faq-item">
+        <h3>如何更快找到想看的类型？</h3>
+        <p>建议先用“电影 / 剧集 / 动漫 / 综艺”确定大类，再用题材标签缩小范围，最后结合简介和时长做决定。相比直接翻榜单，按分类逐层筛选通常更高效。</p>
+      </article>
+      <article class="faq-item">
+        <h3>观看影视内容需要注意什么？</h3>
+        <p>优先选择正规合规的观看渠道，注意保护个人信息，不随意授权或下载来源不明的程序。同时合理安排观看时间，避免长时间连续观看影响休息。</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo"><span class="logo-mark">96</span>96<span class="accent">视频</span></div>
+      <p>影视内容分类浏览与在线观看方式的信息整理页，帮助用户理解分类结构、更新节奏与常见观看问题。</p>
+    </div>
+    <div class="footer-col">
+      <h4>内容分类</h4>
+      <ul>
+        <li><a href="#categories">电影</a></li>
+        <li><a href="#categories">电视剧集</a></li>
+        <li><a href="#categories">动漫番剧</a></li>
+        <li><a href="#categories">综艺纪实</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>浏览帮助</h4>
+      <ul>
+        <li><a href="#hot">热门榜单</a></li>
+        <li><a href="#updates">更新节奏</a></li>
+        <li><a href="#guide">观看指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>观看提示</h4>
+      <ul>
+        <li><a href="#guide">网络与清晰度</a></li>
+        <li><a href="#guide">浏览器兼容</a></li>
+        <li><a href="#guide">合理观看时长</a></li>
+        <li><a href="#guide">版权与合规</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>本页面为影视信息整理与观看方式说明，不提供影视文件存储与下载服务。</span>
+    <span>请通过合法合规渠道观看影视作品。</span>
+  </div>
+</footer>
+
+<script>
+  // 导航平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = this.getAttribute('href');
+      if (id.length > 1) {
+        var target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // 简易搜索提示
+  var searchBtn = document.querySelector('.btn-search');
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function () {
+      alert('可在上方分类导航中按“电影 / 剧集 / 动漫 / 综艺”逐层筛选，或结合题材标签缩小范围。');
+    });
+  }
+</script>
+
+</body>
+  </html>
