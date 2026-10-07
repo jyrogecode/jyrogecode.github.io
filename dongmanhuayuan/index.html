@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动漫花园-动漫资源索引与追番交流社区</title>
+<meta name="description" content="动漫花园是一个面向动漫爱好者的资源索引与追番交流平台，提供新番导视、资源分类检索、字幕组信息、追番日历与社区讨论，帮助你高效找到想看的动画作品。">
+<meta name="keywords" content="动漫花园,动漫资源,新番导视,追番日历,字幕组,动漫社区,动画索引">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+:root{
+  --bg:#f6f7fb;
+  --panel:#ffffff;
+  --ink:#1d2333;
+  --ink-2:#4a5468;
+  --ink-3:#7b8598;
+  --line:#e4e7ef;
+  --brand:#5b5bd6;
+  --brand-2:#8b5cf6;
+  --accent:#ff7a59;
+  --accent-soft:#fff1ec;
+  --mint:#12b5a4;
+  --radius:14px;
+  --shadow:0 6px 22px rgba(29,35,51,.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 12px;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 18px;}
+
+/* ---------- 顶部 ---------- */
+.topbar{
+  background:#171b2b;
+  color:#c8cde0;
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  height:38px;gap:14px;
+}
+.topbar .tb-left{display:flex;gap:16px;align-items:center;overflow:hidden;white-space:nowrap;}
+.topbar .tb-left span{color:#8d94ad;}
+.topbar .tb-right{display:flex;gap:14px;align-items:center;}
+.topbar a:hover{color:#fff;}
+.dot-live{
+  display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:#3ddc97;margin-right:6px;vertical-align:middle;
+  box-shadow:0 0 0 3px rgba(61,220,151,.18);
+}
+
+/* ---------- 页眉 ---------- */
+header.site-head{
+  background:linear-gradient(135deg,#4b46c9 0%,#7b4bd6 55%,#a855f7 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+header.site-head::after{
+  content:"";
+  position:absolute;right:-90px;top:-90px;width:320px;height:320px;
+  border-radius:50%;background:rgba(255,255,255,.08);
+}
+header.site-head::before{
+  content:"";
+  position:absolute;left:-60px;bottom:-140px;width:260px;height:260px;
+  border-radius:50%;background:rgba(255,255,255,.06);
+}
+.head-main{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:20px 0 18px;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{
+  width:46px;height:46px;border-radius:13px;flex:none;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.brand-text h1{
+  font-size:22px;letter-spacing:.5px;
+}
+.brand-text p{
+  margin:2px 0 0;font-size:12.5px;color:rgba(255,255,255,.78);letter-spacing:.4px;
+}
+.head-search{
+  flex:1;max-width:420px;display:flex;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;padding:5px 6px 5px 16px;
+  align-items:center;
+}
+.head-search input{
+  flex:1;border:0;background:transparent;outline:none;color:#fff;
+  font-size:14px;font-family:inherit;min-width:0;
+}
+.head-search input::placeholder{color:rgba(255,255,255,.65);}
+.head-search button{
+  border:0;cursor:pointer;font-family:inherit;
+  background:#fff;color:#5b46c9;font-weight:700;font-size:13.5px;
+  padding:8px 18px;border-radius:999px;
+}
+.head-search button:hover{background:#f0ecff;}
+
+nav.main-nav{
+  position:relative;z-index:2;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+nav.main-nav ul{
+  display:flex;flex-wrap:wrap;gap:4px;
+}
+nav.main-nav a{
+  display:block;padding:11px 15px;font-size:14.5px;
+  color:rgba(255,255,255,.85);border-radius:8px 8px 0 0;
+  transition:background .18s,color .18s;
+}
+nav.main-nav a:hover{background:rgba(255,255,255,.14);color:#fff;}
+nav.main-nav a.active{background:var(--bg);color:#4b46c9;font-weight:700;}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;z-index:2;
+  padding:6px 0 34px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:22px;
+  align-items:stretch;
+}
+.hero-main{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:var(--radius);
+  padding:26px 26px 22px;
+  backdrop-filter:blur(2px);
+}
+.hero-tag{
+  display:inline-block;font-size:12.5px;letter-spacing:.6px;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);
+  padding:3px 12px;border-radius:999px;margin-bottom:14px;
+}
+.hero-main h2{
+  font-size:27px;color:#fff;margin-bottom:12px;letter-spacing:.5px;
+}
+.hero-main p{
+  color:rgba(255,255,255,.86);font-size:14.5px;max-width:560px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.btn{
+  display:inline-block;padding:10px 22px;border-radius:999px;
+  font-size:14px;font-weight:700;transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-light{background:#fff;color:#4b46c9;box-shadow:0 6px 16px rgba(0,0,0,.14);}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);}
+.hero-side{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:var(--radius);
+  padding:20px 22px;
+}
+.hero-side h3{
+  font-size:15px;color:#fff;margin-bottom:12px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.hero-side h3 span{font-size:12px;font-weight:400;color:rgba(255,255,255,.7);}
+.week-list li{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.2);
+  font-size:13.5px;color:rgba(255,255,255,.9);
+}
+.week-list li:last-child{border-bottom:0;}
+.week-day{
+  flex:none;width:42px;text-align:center;font-size:12px;
+  background:rgba(255,255,255,.2);border-radius:6px;padding:2px 0;
+}
+.week-list li em{font-style:normal;color:rgba(255,255,255,.72);font-size:12.5px;margin-left:auto;}
+
+/* ---------- 主体布局 ---------- */
+main{padding:32px 0 10px;}
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:26px;
+  align-items:start;
+}
+section.block{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:22px 24px 24px;margin-bottom:24px;
+}
+.block-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:12px;margin-bottom:16px;flex-wrap:wrap;
+}
+.block-head h2{
+  font-size:19px;position:relative;padding-left:13px;
+}
+.block-head h2::before{
+  content:"";position:absolute;left:0;top:4px;bottom:4px;width:4px;
+  border-radius:3px;background:linear-gradient(180deg,var(--brand),var(--brand-2));
+}
+.block-head .sub{font-size:13px;color:var(--ink-3);}
+.more-link{font-size:13px;color:var(--brand);font-weight:600;}
+.more-link:hover{text-decoration:underline;}
+
+/* 新番卡片 */
+.anime-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:16px;
+}
+.anime-card{
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  background:#fff;transition:transform .18s,box-shadow .18s,border-color .18s;
+  display:flex;flex-direction:column;
+}
+.anime-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 26px rgba(91,91,214,.14);
+  border-color:#cfcbf5;
+}
+.anime-cover{
+  height:104px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:26px;font-weight:700;letter-spacing:2px;
+}
+.c1{background:linear-gradient(135deg,#6d5ef0,#a78bfa);}
+.c2{background:linear-gradient(135deg,#ff7a59,#ffb199);}
+.c3{background:linear-gradient(135deg,#12b5a4,#6ee7d8);}
+.c4{background:linear-gradient(135deg,#3b82f6,#7dd3fc);}
+.c5{background:linear-gradient(135deg,#f472b6,#fbcfe8);}
+.c6{background:linear-gradient(135deg,#f59e0b,#fcd34d);}
+.anime-cover .badge{
+  position:absolute;top:8px;left:8px;font-size:11px;font-weight:600;
+  background:rgba(0,0,0,.42);padding:2px 8px;border-radius:999px;letter-spacing:0;
+}
+.anime-body{padding:11px 13px 13px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.anime-body h3{font-size:14.5px;}
+.anime-body .meta{font-size:12.5px;color:var(--ink-3);}
+.anime-body .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;}
+.tag{
+  font-size:11.5px;color:var(--ink-2);background:#f1f2f8;
+  border-radius:6px;padding:2px 8px;
+}
+.tag.hot{background:var(--accent-soft);color:#d94a24;}
+.tag.new{background:#e7f8f5;color:#0d8d80;}
+
+/* 更新列表 */
+.update-list li{
+  display:flex;align-items:center;gap:14px;
+  padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;
+}
+.update-list li:last-child{border-bottom:0;}
+.update-list .ep{
+  flex:none;font-size:12px;font-weight:700;color:#fff;
+  background:var(--brand);border-radius:6px;padding:2px 8px;min-width:52px;text-align:center;
+}
+.update-list .name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.update-list .name a:hover{color:var(--brand);}
+.update-list .grp{font-size:12.5px;color:var(--ink-3);flex:none;}
+.update-list .time{font-size:12.5px;color:var(--ink-3);flex:none;width:74px;text-align:right;}
+
+/* 分类导航 */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;
+}
+.cat-item{
+  border:1px solid var(--line);border-radius:11px;padding:13px 14px;
+  background:#fbfbfe;transition:background .18s,border-color .18s;
+}
+.cat-item:hover{background:#f3f2ff;border-color:#d5d2f7;}
+.cat-item strong{display:block;font-size:14px;margin-bottom:3px;}
+.cat-item span{font-size:12.5px;color:var(--ink-3);}
+
+/* 指南文章 */
+.guide-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.guide-item{
+  border-left:3px solid var(--brand-2);padding:2px 0 2px 14px;
+}
+.guide-item h3{font-size:15px;margin-bottom:5px;}
+.guide-item p{font-size:13.5px;color:var(--ink-2);margin:0;}
+.guide-item .num{
+  display:inline-block;font-size:12px;font-weight:700;color:var(--brand);
+  margin-bottom:4px;letter-spacing:.5px;
+}
+
+/* 侧栏 */
+aside .side-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px 20px 20px;margin-bottom:22px;
+}
+.side-card h3{
+  font-size:15.5px;margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.side-card h3 small{font-size:12px;color:var(--ink-3);font-weight:400;}
+.rank-list li{
+  display:flex;gap:10px;align-items:flex-start;padding:8px 0;
+  border-bottom:1px dashed var(--line);font-size:13.8px;
+}
+.rank-list li:last-child{border-bottom:0;}
+.rank-no{
+  flex:none;width:20px;height:20px;border-radius:6px;font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  background:#eef0f7;color:var(--ink-2);margin-top:2px;
+}
+.rank-no.top{background:linear-gradient(135deg,#ff7a59,#ff9f7f);color:#fff;}
+.rank-list .rk-body{min-width:0;}
+.rank-list .rk-body a:hover{color:var(--brand);}
+.rank-list .rk-body span{display:block;font-size:12px;color:var(--ink-3);}
+.grp-list li{
+  padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.8px;
+}
+.grp-list li:last-child{border-bottom:0;}
+.grp-list li span{display:block;font-size:12.3px;color:var(--ink-3);}
+.notice{
+  background:#f7f8fd;border:1px dashed #d5d8e8;border-radius:11px;
+  padding:13px 15px;font-size:13px;color:var(--ink-2);
+}
+.notice strong{color:var(--ink);}
+.notice ul{margin-top:8px;}
+.notice li{padding-left:14px;position:relative;margin-bottom:5px;}
+.notice li::before{
+  content:"";position:absolute;left:0;top:9px;width:5px;height:5px;
+  border-radius:50%;background:var(--brand-2);
+}
+
+/* FAQ */
+.faq-item{
+  border:1px solid var(--line);border-radius:11px;margin-bottom:10px;
+  overflow:hidden;background:#fcfcff;
+}
+.faq-item summary{
+  cursor:pointer;padding:13px 16px;font-size:14.5px;font-weight:600;
+  list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";color:var(--brand);font-size:19px;font-weight:400;line-height:1;
+}
+.faq-item[open] summary::after{content:"–";}
+.faq-item[open] summary{color:var(--brand);}
+.faq-item .faq-body{
+  padding:0 16px 14px;font-size:13.8px;color:var(--ink-2);
+}
+
+/* 页脚 */
+footer.site-foot{
+  background:#171b2b;color:#9aa2b8;margin-top:34px;padding:34px 0 20px;
+  font-size:13.5px;
+}
+.foot-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px;
+  padding-bottom:22px;border-bottom:1px solid #262c40;
+}
+.foot-grid h4{color:#fff;font-size:14.5px;margin-bottom:11px;}
+.foot-grid li{margin-bottom:7px;}
+.foot-grid a:hover{color:#fff;}
+.foot-about p{font-size:13px;color:#8b93aa;margin:0;}
+.foot-bottom{
+  padding-top:16px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12.5px;color:#6f7791;
+}
+
+/* 响应式 */
+@media (max-width:1020px){
+  .layout{grid-template-columns:1fr;}
+  aside{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+  aside .side-card{margin-bottom:0;}
+}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  .topbar .tb-left{display:none;}
+  .head-main{flex-direction:column;align-items:stretch;gap:14px;}
+  .head-search{max-width:none;}
+  .brand-text h1{font-size:19px;}
+  .hero-main{padding:20px 18px;}
+  .hero-main h2{font-size:21px;}
+  section.block{padding:18px 16px 20px;}
+  .guide-cols{grid-template-columns:1fr;}
+  aside{grid-template-columns:1fr;}
+  .update-list .grp{display:none;}
+  .update-list .time{width:auto;}
+  .foot-grid{grid-template-columns:1fr;}
+  nav.main-nav a{padding:10px 11px;font-size:13.5px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-left">
+      <span><i class="dot-live"></i>索引状态正常</span>
+      <span>本站仅提供作品信息索引与交流，不存储任何资源文件</span>
+    </div>
+    <div class="tb-right">
+      <a href="#guide">新手指南</a>
+      <a href="#faq">常见问题</a>
+      <a href="#notice">版权说明</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-main">
+    <div class="brand">
+      <div class="brand-mark">花</div>
+      <div class="brand-text">
+        <h1>动漫花园</h1>
+        <p>动漫资源索引 · 追番日历 · 字幕组信息 · 同好交流</p>
+      </div>
+    </div>
+    <form class="head-search" onsubmit="return false;">
+      <input type="search" placeholder="搜索动画名称、字幕组或年份，例如：2024 年新番" aria-label="站内搜索">
+      <button type="button">搜索</button>
+    </form>
+  </div>
+  <nav class="main-nav">
+    <div class="wrap">
+      <ul>
+        <li><a class="active" href="#top">首页</a></li>
+        <li><a href="#season">新番导视</a></li>
+        <li><a href="#update">更新动态</a></li>
+        <li><a href="#category">分类索引</a></li>
+        <li><a href="#rank">人气榜单</a></li>
+        <li><a href="#guide">追番指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div id="top"></div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-main">
+      <span class="hero-tag">动漫花园 · 本季主题</span>
+      <h2>把想看的动画，一次找齐</h2>
+      <p>动漫花园整理当季新番、往季完结作品与剧场版信息，按播出时间、类型、制作公司与字幕组进行归类。你可以先看导视了解剧情方向，再通过分类索引定位作品，最后在社区里和其他观众讨论观感。</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#season">查看本季新番</a>
+        <a class="btn btn-ghost" href="#guide">追番入门指南</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <h3>追番日历 <span>按更新日浏览</span></h3>
+      <ul class="week-list">
+        <li><span class="week-day">周一</span>日常 / 治愈类更新集中 <em>4 部</em></li>
+        <li><span class="week-day">周三</span>轻改与奇幻题材为主 <em>6 部</em></li>
+        <li><span class="week-day">周五</span>热血与战斗番高峰 <em>7 部</em></li>
+        <li><span class="week-day">周六</span>长篇连载与合家欢 <em>5 部</em></li>
+        <li><span class="week-day">周日</span>话题作与完结集 <em>6 部</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="layout">
+
+    <div class="content">
+
+      <section class="block" id="season">
+        <div class="block-head">
+          <h2>本季新番导视</h2>
+          <span class="sub">按题材挑选，点开卡片查看简介与播出信息</span>
+        </div>
+        <div class="anime-grid">
+
+          <article class="anime-card">
+            <div class="anime-cover c1">异
+              <span class="badge">新番</span>
+            </div>
+            <div class="anime-body">
+              <h3>异世界旅途手记</h3>
+              <p class="meta">奇幻 / 冒险 · 每周五更新</p>
+              <div class="tags"><span class="tag new">本季首播</span><span class="tag">轻改</span></div>
+            </div>
+          </article>
+
+          <article class="anime-card">
+            <div class="anime-cover c2">夏
+              <span class="badge">热播</span>
+            </div>
+            <div class="anime-body">
+              <h3>夏日回声</h3>
+              <p class="meta">青春 / 恋爱 · 每周日更新</p>
+              <div class="tags"><span class="tag hot">讨论度高</span><span class="tag">原创</span></div>
+            </div>
+          </article>
+
+          <article class="anime-card">
+            <div class="anime-cover c3">机
+              <span class="badge">连载</span>
+            </div>
+            <div class="anime-body">
+              <h3>机械都市零号区</h3>
+              <p class="meta">科幻 / 悬疑 · 每周三更新</p>
+              <div class="tags"><span class="tag">硬科幻</span><span class="tag">群像</span></div>
+            </div>
+          </article>
+
+          <article class="anime-card">
+            <div class="anime-cover c4">剑
+              <span class="badge">新番</span>
+            </div>
+            <div class="anime-body">
+              <h3>剑与炉火</h3>
+              <p class="meta">战斗 / 成长 · 每周六更新</p>
+              <div class="tags"><span class="tag new">本季首播</span><span class="tag">少年向</span></div>
+            </div>
+          </article>
+
+          <article class="anime-card">
+            <div class="anime-cover c5">花
+              <span class="badge">日常</span>
+            </div>
+            <div class="anime-body">
+              <h3>花店今日也营业</h3>
+              <p class="meta">日常 / 治愈 · 每周一更新</p>
+              <div class="tags"><span class="tag">轻松</span><span class="tag">短篇</span></div>
+            </div>
+          </article>
+
+          <article class="anime-card">
+            <div class="anime-cover c6">食
+              <span class="badge">续作</span>
+            </div>
+            <div class="anime-body">
+              <h3>深夜食堂物语 第二季</h3>
+              <p class="meta">美食 / 温情 · 每周四更新</p>
+              <div class="tags"><span class="tag">续作</span><span class="tag">单元剧</span></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="block" id="update">
+        <div class="block-head">
+          <h2>更新动态</h2>
+          <span class="sub">按发布时间排序，仅展示作品条目信息</span>
+        </div>
+        <ul class="update-list">
+          <li>
+            <span class="ep">第 08 话</span>
+            <span class="name"><a href="#season">异世界旅途手记</a></span>
+            <span class="grp">字幕组 A</span>
+            <span class="time">2 小时前</span>
+          </li>
+          <li>
+            <span class="ep">第 06 话</span>
+            <span class="name"><a href="#season">机械都市零号区</a></span>
+            <span class="grp">字幕组 B</span>
+            <span class="time">5 小时前</span>
+          </li>
+          <li>
+            <span class="ep">第 11 话</span>
+            <span class="name"><a href="#season">夏日回声</a></span>
+            <span class="grp">字幕组 C</span>
+            <span class="time">昨天</span>
+          </li>
+          <li>
+            <span class="ep">第 03 话</span>
+            <span class="name"><a href="#season">花店今日也营业</a></span>
+            <span class="grp">字幕组 A</span>
+            <span class="time">昨天</span>
+          </li>
+          <li>
+            <span class="ep">第 09 话</span>
+            <span class="name"><a href="#season">剑与炉火</a></span>
+            <span class="grp">字幕组 D</span>
+            <span class="time">2 天前</span>
+          </li>
+          <li>
+            <span class="ep">第 12 话</span>
+            <span class="name"><a href="#season">深夜食堂物语 第二季</a></span>
+            <span class="grp">字幕组 B</span>
+            <span class="time">3 天前</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="category">
+        <div class="block-head">
+          <h2>分类索引</h2>
+          <span class="sub">按题材、年代与形式快速定位作品</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-item" href="#category"><strong>热血战斗</strong><span>少年向、竞技、格斗</span></a>
+          <a class="cat-item" href="#category"><strong>奇幻异世界</strong><span>轻改、转生、魔法</span></a>
+          <a class="cat-item" href="#category"><strong>科幻机甲</strong><span>硬科幻、机器人、未来</span></a>
+          <a class="cat-item" href="#category"><strong>日常治愈</strong><span>校园、生活、温情</span></a>
+          <a class="cat-item" href="#category"><strong>恋爱青春</strong><span>校园恋爱、群像剧</span></a>
+          <a class="cat-item" href="#category"><strong>悬疑推理</strong><span>本格、心理、犯罪</span></a>
+          <a class="cat-item" href="#category"><strong>剧场版</strong><span>动画电影与特别篇</span></a>
+          <a class="cat-item" href="#category"><strong>往季完结</strong><span>按年份归档浏览</span></a>
+        </div>
+      </section>
+
+      <section class="block" id="guide">
+        <div class="block-head">
+          <h2>追番与检索指南</h2>
+          <span class="sub">第一次使用动漫花园，可以从这里开始</span>
+        </div>
+        <div class="guide-cols">
+          <div class="guide-item">
+            <span class="num">01</span>
+            <h3>先看导视，再决定追哪部</h3>
+            <p>新番导视会标注题材、播出周期与制作信息。如果只是想了解剧情走向，先读简介和标签，比直接翻列表更省时间。</p>
+          </div>
+          <div class="guide-item">
+            <span class="num">02</span>
+            <h3>用播出日历安排时间</h3>
+            <p>追番日历按周一到周日排列更新日，适合同时追多部作品的人，避免错过更新或重复翻找。</p>
+          </div>
+          <div class="guide-item">
+            <span class="num">03</span>
+            <h3>按分类索引缩小范围</h3>
+            <p>题材、年代、形式三个维度可以叠加使用。比如“2023 年 + 悬疑 + 剧场版”，能快速过滤掉不感兴趣的内容。</p>
+          </div>
+          <div class="guide-item">
+            <span class="num">04</span>
+            <h3>留意字幕组标注</h3>
+            <p>不同字幕组的翻译风格、更新时间与画质说明各有差异。条目页会标注来源信息，方便你选择习惯的版本。</p>
+          </div>
+          <div class="guide-item">
+            <span class="num">05</span>
+            <h3>善用收藏与提醒</h3>
+            <p>把在追的作品加入收藏列表，更新日会有明显标记，减少遗漏。收藏仅保存在本地浏览器中。</p>
+          </div>
+          <div class="guide-item">
+            <span class="num">06</span>
+            <h3>在社区里交流观感</h3>
+            <p>讨论区按作品分帖，适合聊剧情、作画和配乐。发言前请先阅读版规，避免剧透他人。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="faq">
+        <div class="block-head">
+          <h2>常见问题</h2>
+          <span class="sub">关于动漫花园的使用说明</span>
+        </div>
+
+        <details class="faq-item" open>
+          <summary>动漫花园是什么类型的网站？</summary>
+          <div class="faq-body">
+            动漫花园是一个面向动画爱好者的信息索引与交流平台，主要提供新番导视、作品条目、播出日历、字幕组信息与讨论区。它本身不存储、不托管任何视频文件，页面中的内容以作品信息和索引为主。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>为什么有些条目只有简介，没有观看入口？</summary>
+          <div class="faq-body">
+            条目页的作用是帮助用户了解作品的基本信息，例如播出时间、集数、制作阵容与题材标签。是否提供观看方式，取决于作品版权方与所在地区的授权情况，请通过正规渠道观看。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>追番日历的更新日准确吗？</summary>
+          <div class="faq-body">
+            日历依据公开的播出安排整理，但日本动画常因节目调整、体育赛事转播或制作进度出现临时改档。建议以官方公告为准，日历仅作为参考。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>如何判断一部作品是否适合自己？</summary>
+          <div class="faq-body">
+            可以先看题材标签和简介，再参考讨论区中关于节奏、作画与剧情的讨论。如果对剧透敏感，建议先只看无剧透的短评。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>收藏和浏览记录会同步到其他设备吗？</summary>
+          <div class="faq-body">
+            不会。收藏与浏览记录默认保存在当前浏览器本地，清除浏览器数据后会丢失，也不会在设备之间同步。
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>发现条目信息有误，怎么反馈？</summary>
+          <div class="faq-body">
+            可以在对应条目的讨论区留言，或通过页脚的反馈入口提交。请尽量附上官方来源链接，方便核对后修正。
+          </div>
+        </details>
+      </section>
+
+    </div>
+
+    <aside>
+
+      <div class="side-card" id="rank">
+        <h3>人气榜单 <small>近 7 日讨论热度参考</small></h3>
+        <ul class="rank-list">
+          <li>
+            <span class="rank-no top">1</span>
+            <span class="rk-body"><a href="#season">夏日回声</a><span>青春 / 恋爱 · 讨论帖持续增长</span></span>
+          </li>
+          <li>
+            <span class="rank-no top">2</span>
+            <span class="rk-body"><a href="#season">异世界旅途手记</a><span>奇幻 / 冒险 · 作画讨论较多</span></span>
+          </li>
+          <li>
+            <span class="rank-no top">3</span>
+            <span class="rk-body"><a href="#season">机械都市零号区</a><span>科幻 / 悬疑 · 剧情解析帖活跃</span></span>
+          </li>
+          <li>
+            <span class="rank-no">4</span>
+            <span class="rk-body"><a href="#season">剑与炉火</a><span>战斗 / 成长 · 新观众较多</span></span>
+          </li>
+          <li>
+            <span class="rank-no">5</span>
+            <span class="rk-body"><a href="#season">深夜食堂物语 第二季</a><span>美食 / 温情 · 单元剧口碑稳定</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>字幕组信息 <small>按更新频率整理</small></h3>
+        <ul class="grp-list">
+          <li><strong>字幕组 A</strong><span>日常与治愈题材更新较及时</span></li>
+          <li><strong>字幕组 B</strong><span>科幻与悬疑类目条目较完整</span></li>
+          <li><strong>字幕组 C</strong><span>恋爱与青春题材译制风格稳定</span></li>
+          <li><strong>字幕组 D</strong><span>少年向作品更新节奏规律</span></li>
+          <li><strong>字幕组 E</strong><span>剧场版与特别篇条目为主</span></li>
+        </ul>
+      </div>
+
+      <div class="side-card" id="notice">
+        <h3>使用提示</h3>
+        <div class="notice">
+          <strong>请通过正规渠道观看动画作品。</strong>
+          <ul>
+            <li>本站不存储、不托管任何视频文件</li>
+            <li>条目信息整理自公开播出资料，仅供参考</li>
+            <li>讨论区请勿发布侵权内容或剧透标题</li>
+            <li>遇到失效链接或错误信息，欢迎反馈</li>
+          </ul>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <h4>动漫花园</h4>
+        <p>动漫资源索引与追番交流平台，整理新番导视、播出日历、分类条目与字幕组信息，帮助动画爱好者更高效地找到想看的作品。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#season">新番导视</a></li>
+          <li><a href="#update">更新动态</a></li>
+          <li><a href="#category">分类索引</a></li>
+          <li><a href="#rank">人气榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助中心</h4>
+        <ul>
+          <li><a href="#guide">追番指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#notice">版权说明</a></li>
+          <li><a href="#notice">反馈建议</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <ul>
+          <li><a href="#rank">作品讨论</a></li>
+          <li><a href="#guide">版规说明</a></li>
+          <li><a href="#faq">新手指引</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>动漫花园 · 作品信息整理与索引，仅供学习交流参考</span>
+      <span>请支持正版，通过正规渠道观看动画作品</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('nav.main-nav a');
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      links.forEach(function (l) { l.classList.remove('active'); });
+      link.classList.add('active');
+    });
+  });
+
+  var searchInput = document.querySelector('.head-search input');
+  var searchBtn = document.querySelector('.head-search button');
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener('click', function () {
+      var v = searchInput.value.trim();
+      if (!v) { searchInput.focus(); return; }
+      window.location.hash = '#season';
+    });
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); searchBtn.click(); }
+    });
+  }
+})();
+</script>
+
+</body>
+                                                 </html>
